@@ -13,9 +13,10 @@ import Strike from "@tiptap/extension-strike";
 import Code from "@tiptap/extension-code";
 import History from "@tiptap/extension-history";
 
-import { LinkModal } from "./partials/link-modal";
+import { LinkModal } from "./partials/link-modal/link-modal";
 import MenuBar from "./partials/menu-bar/menu-bar";
 import styles from "./editor.module.css";
+import Button from "../button";
 
 export default function Editor({ className, onChange, content }) {
   const editor = useEditor({
@@ -89,12 +90,10 @@ export default function Editor({ className, onChange, content }) {
           return from === to && editor.isActive("link");
         }}
       >
-        <button className="button" onClick={openModal}>
-          Edit
-        </button>
-        <button className="button-remove" onClick={removeLink}>
-          Remove
-        </button>
+        <div className={styles.bubbleMenu}>
+          <Button onClick={openModal}>Edit</Button>
+          <Button onClick={removeLink}>Remove</Button>
+        </div>
       </BubbleMenu>
 
       <EditorContent className={styles.editorContent} editor={editor} />

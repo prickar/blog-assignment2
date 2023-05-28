@@ -5,19 +5,19 @@ import classNames from "classnames";
 
 const navItems = {
   "/": {
-    name: "home",
+    name: "Home",
   },
   "/about": {
-    name: "about",
+    name: "About",
   },
   "/blog": {
-    name: "blog",
+    name: "Blog",
   },
   "/create-post": {
-    name: "create post",
+    name: "Create post",
   },
   "/login": {
-    name: "login",
+    name: "Login",
   },
 };
 
