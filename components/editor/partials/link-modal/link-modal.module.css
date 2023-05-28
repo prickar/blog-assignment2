@@ -31,8 +31,3 @@
 .modalButton {
   flex: 1 1 0;
 }
-
-.modalInput {
-  padding: 8px;
-  border: 1px solid black;
-}

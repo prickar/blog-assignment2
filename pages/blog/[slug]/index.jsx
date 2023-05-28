@@ -1,9 +1,12 @@
 import { useRouter } from "next/router";
-import styles from "../blog.module.css";
+import styles from "./blog-post.module.css";
+import Comments from "./partials/comments";
+import AddComment from "./partials/add-comment";
 
 const post = {
   id: "1234",
   title: "Why you should use a react framework",
+  author: "John Doe",
   slug: "why-you-should-use-react-framework",
   createdAt: "2022-02-12",
   body: `
@@ -26,10 +29,18 @@ export default function BlogPost() {
   const { slug } = router.query;
 
   return (
-    <section>
-      <h1 className={styles.heading}>{post.title}</h1>
-      <time className={styles.date}>{post.createdAt}</time>
-      <div dangerouslySetInnerHTML={{ __html: post.body }} />
-    </section>
+    <>
+      <section className={styles.container}>
+        <h1 className={styles.heading}>{post.title}</h1>
+        <div className={styles.dateContainer}>
+          <time className={styles.date}>{post.createdAt}</time>
+          <div className={styles.border} />
+        </div>
+        <div dangerouslySetInnerHTML={{ __html: post.body }} />
+        <span className={styles.author}>Author: {post.author}</span>
+      </section>
+      <Comments id={post.id} />
+      <AddComment id={post.id} />
+    </>
   );
 }

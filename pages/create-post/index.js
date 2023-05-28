@@ -4,6 +4,7 @@ import { content } from "../../components/editor/constants";
 import { useState } from "react";
 import Button from "../../components/button";
 import Input from "../../components/input";
+import Label from "../../components/label";
 
 export default function CreatePost() {
   const [editorContent, setEditorJsonContent] = useState(content);
@@ -20,9 +21,9 @@ export default function CreatePost() {
 
   return (
     <>
-      <h1>Create post</h1>
+      <h1 className={styles.heading}>Create post</h1>
       <form onSubmit={handleOnSubmit} className={styles.container}>
-        <label>Title</label>
+        <Label>Title</Label>
         <Input className={styles.titleInput} />
         <Editor
           content={content}

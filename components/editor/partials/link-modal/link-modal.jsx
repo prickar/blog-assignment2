@@ -3,6 +3,8 @@ import * as Icons from "../../icons";
 import styles from "./link-modal.module.css";
 import { Modal } from "../../../modal/modal";
 import Button from "../../../button";
+import Input from "../../../input";
+import Label from "../../../label";
 
 export function LinkModal({
   url,
@@ -16,7 +18,7 @@ export function LinkModal({
     <Modal {...rest}>
       <div className={styles.container}>
         <div className={styles.modalHeader}>
-          <h2 className="modal-title">Edit link</h2>
+          <h2>Edit link</h2>
           <Button
             className={styles.closeModal}
             type="button"
@@ -27,13 +29,8 @@ export function LinkModal({
         </div>
 
         <div className={styles.input}>
-          <label className="modal-label">URL</label>
-          <input
-            className={styles.modalInput}
-            autoFocus
-            value={url}
-            onChange={onChangeUrl}
-          />
+          <Label>URL</Label>
+          <Input autoFocus value={url} onChange={onChangeUrl} />
         </div>
         <div className={styles.modalButtons}>
           <Button
@@ -41,7 +38,7 @@ export function LinkModal({
             type="button"
             onClick={onRemoveLink}
           >
-            Remove
+            Remove link
           </Button>
           <Button
             className={styles.modalButton}
