@@ -1,13 +1,15 @@
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 20px;
+  margin-top: 2rem;
 }
 
 .editor {
   border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.uploadButton {
+  margin-top: 10px;
 }

@@ -14,7 +14,8 @@ import Code from "@tiptap/extension-code";
 import History from "@tiptap/extension-history";
 
 import { LinkModal } from "./partials/link-modal";
-import MenuBar from "./partials/menu-bar";
+import MenuBar from "./partials/menu-bar/menu-bar";
+import styles from "./editor.module.css";
 
 export default function Editor({ className, onChange, content }) {
   const editor = useEditor({
@@ -96,7 +97,7 @@ export default function Editor({ className, onChange, content }) {
         </button>
       </BubbleMenu>
 
-      <EditorContent editor={editor} />
+      <EditorContent className={styles.editorContent} editor={editor} />
 
       <LinkModal
         url={url}

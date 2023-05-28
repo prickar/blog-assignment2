@@ -2,6 +2,7 @@ import styles from "./create-post.module.css";
 import Editor from "../../components/editor/editor";
 import { content } from "../../components/editor/constants";
 import { useState } from "react";
+import Button from "../../components/button";
 
 export default function CreatePost() {
   const [editorContent, setEditorJsonContent] = useState(content);
@@ -17,13 +18,18 @@ export default function CreatePost() {
   };
 
   return (
-    <form onSubmit={handleOnSubmit} className={styles.container}>
-      <Editor
-        content={content}
-        className={styles.editor}
-        onChange={handleOnChange}
-      />
-      <button type="submit">Upload post</button>
-    </form>
+    <>
+      <h1>Create post</h1>
+      <form onSubmit={handleOnSubmit} className={styles.container}>
+        <Editor
+          content={content}
+          className={styles.editor}
+          onChange={handleOnChange}
+        />
+        <Button className={styles.uploadButton} type="submit">
+          Upload post
+        </Button>
+      </form>
+    </>
   );
 }
