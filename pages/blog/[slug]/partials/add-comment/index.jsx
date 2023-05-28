@@ -1,8 +1,8 @@
 import { useRef } from "react";
-import Button from "../../../../../components/button";
-import Input from "../../../../../components/input";
-import Label from "../../../../../components/label";
-import TextArea from "../../../../../components/text-area";
+import Button from "@components/button";
+import Input from "@components/input";
+import Label from "@components/label";
+import TextArea from "@components/text-area";
 import styles from "./add-comment.module.css";
 
 export default function AddComment({ id }) {

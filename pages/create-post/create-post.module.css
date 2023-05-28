@@ -3,11 +3,6 @@
   flex-direction: column;
 }
 
-.heading {
-  margin-bottom: 20px;
-  font-size: 40px;
-}
-
 .editor {
   border: 1px solid black;
   border-radius: 5px;

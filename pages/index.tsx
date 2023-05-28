@@ -1,6 +1,5 @@
-import Head from "next/head";
-import Image from "next/image";
+import Heading from "@components/heading/heading";
 
 export default function Home() {
-  return <h1>Home</h1>;
+  return <Heading>Home</Heading>;
 }

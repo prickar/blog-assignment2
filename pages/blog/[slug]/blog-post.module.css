@@ -3,11 +3,6 @@
   border-bottom: 1px solid black;
 }
 
-.heading {
-  margin-bottom: 20px;
-  font-size: 40px;
-}
-
 .link {
   display: flex;
   flex-direction: column;
@@ -45,4 +40,10 @@
   height: 1px;
   background: black;
   flex: 1 1 0;
+}
+
+.buttonContainer {
+  margin-top: 20px;
+  display: flex;
+  gap: 5px;
 }

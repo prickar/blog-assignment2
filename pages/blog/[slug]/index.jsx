@@ -2,6 +2,8 @@ import { useRouter } from "next/router";
 import styles from "./blog-post.module.css";
 import Comments from "./partials/comments";
 import AddComment from "./partials/add-comment";
+import Button from "@components/button";
+import Heading from "@components/heading/heading";
 
 const post = {
   id: "1234",
@@ -28,16 +30,26 @@ export default function BlogPost() {
   /* Use this slug to fetch the post from the database */
   const { slug } = router.query;
 
+  const handleDeletePost = () => {};
+
+  const handleEditPost = () => {};
+
   return (
     <>
       <section className={styles.container}>
-        <h1 className={styles.heading}>{post.title}</h1>
+        <Heading>{post.title}</Heading>
         <div className={styles.dateContainer}>
           <time className={styles.date}>{post.createdAt}</time>
           <div className={styles.border} />
         </div>
         <div dangerouslySetInnerHTML={{ __html: post.body }} />
         <span className={styles.author}>Author: {post.author}</span>
+
+        {/* The Delete & Edit part should only be showed if you are authenticated and you are the author */}
+        <div className={styles.buttonContainer}>
+          <Button onClick={handleDeletePost}>Delete</Button>
+          <Button onClick={handleEditPost}>Edit</Button>
+        </div>
       </section>
       <Comments id={post.id} />
       <AddComment id={post.id} />

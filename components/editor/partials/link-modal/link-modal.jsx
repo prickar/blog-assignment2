@@ -1,5 +1,5 @@
 import React from "react";
-import * as Icons from "../../icons";
+import * as Icons from "../icons";
 import styles from "./link-modal.module.css";
 import { Modal } from "../../../modal/modal";
 import Button from "../../../button";

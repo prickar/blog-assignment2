@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import * as Icons from "../../icons";
+import * as Icons from "../icons";
 import { useCallback } from "react";
 import Button from "../../../button";
 

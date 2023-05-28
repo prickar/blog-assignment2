@@ -3,11 +3,6 @@
   border-bottom: 1px solid #ccc;
 }
 
-.heading {
-  margin-bottom: 20px;
-  font-size: 40px;
-}
-
 .link {
   display: flex;
   flex-direction: column;

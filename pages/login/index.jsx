@@ -1,3 +1,5 @@
+import Heading from "../../components/heading/heading";
+
 export default function Login() {
-  return <h1>Login</h1>;
+  return <Heading>Login</Heading>;
 }

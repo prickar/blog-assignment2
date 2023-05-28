@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./blog.module.css";
+import Heading from "../../components/heading/heading";
 
 const mockData = [
   {
@@ -24,7 +25,7 @@ export default function Blog() {
 
   return (
     <section>
-      <h1 className={styles.heading}>Blog</h1>
+      <Heading>Blog</Heading>
       {mockData.map((post) => (
         <Link
           key={post.slug}

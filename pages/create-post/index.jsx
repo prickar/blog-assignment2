@@ -1,10 +1,11 @@
 import styles from "./create-post.module.css";
-import Editor from "../../components/editor/editor";
-import { content } from "../../components/editor/constants";
+import Editor from "@components/editor/editor";
+import { content } from "@components/editor/constants";
 import { useState } from "react";
-import Button from "../../components/button";
-import Input from "../../components/input";
-import Label from "../../components/label";
+import Button from "@components/button";
+import Input from "@components/input";
+import Label from "@components/label";
+import Heading from "@components/heading/heading";
 
 export default function CreatePost() {
   const [editorContent, setEditorJsonContent] = useState(content);
@@ -16,15 +17,18 @@ export default function CreatePost() {
   const handleOnSubmit = (event) => {
     event.preventDefault();
 
-    console.log({ editorContent });
+    const formData = new FormData(event.target);
+    const { title } = Object.fromEntries(formData);
+
+    console.log({ editorContent, title });
   };
 
   return (
     <>
-      <h1 className={styles.heading}>Create post</h1>
+      <Heading>Create post</Heading>
       <form onSubmit={handleOnSubmit} className={styles.container}>
         <Label>Title</Label>
-        <Input className={styles.titleInput} />
+        <Input name="title" className={styles.titleInput} />
         <Editor
           content={content}
           className={styles.editor}
