@@ -54,6 +54,8 @@ This task is intended to enhance your understanding of full-stack web developmen
 
 6. **Image Upload**: Enable authors to upload an image to their posts.
 
+7. **Create post page**: Once the Authentication is in place, the create post page should be hidden and not accessable for non authenticated users.
+
 ### Excellent Grade (Väl Godkänt)
 
 In addition to fulfilling the requirements for a passing grade, these advanced requirements challenge you to incorporate a higher level of complexity, enhancing your understanding of advanced web development concepts.
@@ -73,6 +75,31 @@ Upon completion of your assignment, please take the following steps to submit yo
 2. **Deployment**: Deploy your application to Vercel. Share the URL of the deployed application. Ensure that the application is accessible and functioning as expected on the deployed URL.
 
 By sharing both the repository and the deployed URL, it will allow me to review both your code and the live version of your application.
+
+## Tables
+
+Below is the basic structure of the data tables that is the minimum requirements.
+
+### Users:
+
+id: uuid
+email: text
+
+### Posts:
+
+id: uuid
+title: text
+user_id: uuid // foreign key to users table
+slug: text // needs to be unique
+created_at: timestamptz
+body: json
+
+### Comments:
+
+id: uuid
+author: text
+created_at: timestamptz
+post_id: uuid // foreign key to posts table
 
 ## Deadline
 

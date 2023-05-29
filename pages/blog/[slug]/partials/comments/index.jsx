@@ -16,7 +16,7 @@ const mockData = [
   },
 ];
 
-export default function Comments({ id }) {
+export default function Comments({ postId }) {
   /* 
   Here is a good place to fetch the comments from the database that has a 
   foreign key relation to the post.

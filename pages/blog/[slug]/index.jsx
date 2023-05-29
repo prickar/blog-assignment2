@@ -3,7 +3,8 @@ import styles from "./blog-post.module.css";
 import Comments from "./partials/comments";
 import AddComment from "./partials/add-comment";
 import Button from "@components/button";
-import Heading from "@components/heading/heading";
+import Heading from "@components/heading";
+import BlogImageBanner from "@components/blog-image-banner";
 
 const post = {
   id: "1234",
@@ -32,12 +33,15 @@ export default function BlogPost() {
 
   const handleDeletePost = () => {};
 
-  const handleEditPost = () => {};
+  const handleEditPost = () => {
+    router.push(`/blog/${slug}/edit`);
+  };
 
   return (
     <>
       <section className={styles.container}>
         <Heading>{post.title}</Heading>
+        {post?.image && <BlogImageBanner src={post.image} alt={post.title} />}
         <div className={styles.dateContainer}>
           <time className={styles.date}>{post.createdAt}</time>
           <div className={styles.border} />
@@ -51,10 +55,11 @@ export default function BlogPost() {
           <Button onClick={handleEditPost}>Edit</Button>
         </div>
       </section>
-      <Comments id={post.id} />
+
+      <Comments postId={post.id} />
 
       {/* This component should only be displayed if a user is authenticated */}
-      <AddComment id={post.id} />
+      <AddComment postId={post.id} />
     </>
   );
 }

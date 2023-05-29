@@ -5,7 +5,7 @@ import Label from "@components/label";
 import TextArea from "@components/text-area";
 import styles from "./add-comment.module.css";
 
-export default function AddComment({ id }) {
+export default function AddComment({ postId }) {
   const formRef = useRef(); // create a reference
 
   const handleOnSubmit = (event) => {
@@ -17,8 +17,8 @@ export default function AddComment({ id }) {
 
     /* 
       Perhaps a good place to add a comment to the database that is associated with the blog post 😙
-      console.log({ author, comment, id });
-    */
+      */
+    console.log({ author, comment, postId });
 
     // Reset the form after submission?
     formRef.current.reset();

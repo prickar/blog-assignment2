@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./blog.module.css";
-import Heading from "../../components/heading/heading";
+import Heading from "@components/heading";
 
 const mockData = [
   {
@@ -20,9 +20,6 @@ const mockData = [
 ];
 
 export default function Blog() {
-  //  Here we will fetch all the posts from the database
-  //  and render them in a list instead of using mockData
-
   return (
     <section>
       <Heading>Blog</Heading>
