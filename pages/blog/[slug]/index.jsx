@@ -52,6 +52,8 @@ export default function BlogPost() {
         </div>
       </section>
       <Comments id={post.id} />
+
+      {/* This component should only be displayed if a user is authenticated */}
       <AddComment id={post.id} />
     </>
   );
