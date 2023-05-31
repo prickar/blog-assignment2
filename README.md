@@ -96,7 +96,7 @@ title: text
 user_id: uuid // foreign key to users table
 slug: text // needs to be unique
 created_at: timestamptz
-body: json
+body: text
 
 ### Comments:
 
