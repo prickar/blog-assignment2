@@ -48,11 +48,14 @@ This task is intended to enhance your understanding of full-stack web developmen
 
 3. **Comments**: Allow anyone to comment on posts.
 
-4. **CRUD Operations**: Implement CRUD operations for posts and comments. An authenticated user (you) should have the ability to create, read, update, and delete your own posts.
+4. **CRUD Operations**:
 
-5. **Data Sync**: Use SWR for synchronizing client and server data. Changes such as creating, updating, or deleting a post or posting a comment should reflect immediately in the user interface.
+   - **Posts** Implement the nessecary CRUD operations for posts and comments. An authenticated user (you) should have the ability to create, read, update, and delete their own posts.
+   - **Comments**: A visitor should be able to post a comment. An author should be able to delete a comment if it belongs to a post created by them.
 
-6. **Image Upload**: Enable authors to upload an image to their posts.
+5. **Data Sync**: Use SWR for synchronizing client and server data. Changes to the data should reflect immediately in the user interface.
+
+6. **Image Upload**: Enable authors to upload an image to their post.
 
 7. **Create post page**: Once the Authentication is in place, the create post page should be hidden and not accessable for non authenticated users.
 
@@ -78,7 +81,7 @@ By sharing both the repository and the deployed URL, it will allow me to review 
 
 ## Tables
 
-Below is the basic structure of the data tables that is the minimum requirements.
+Below is the basic structure of the data tables that is the minimum requirement.
 
 ### Users:
 
