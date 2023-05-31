@@ -51,6 +51,7 @@ This task is intended to enhance your understanding of full-stack web developmen
 4. **CRUD Operations**:
 
    - **Posts** Implement the nessecary CRUD operations for posts and comments. An authenticated user (you) should have the ability to create, read, update, and delete their own posts.
+
    - **Comments**: A visitor should be able to post a comment. An author should be able to delete a comment if it belongs to a post created by them.
 
 5. **Data Sync**: Use SWR for synchronizing client and server data. Changes to the data should reflect immediately in the user interface.
@@ -103,6 +104,7 @@ id: uuid
 author: text
 created_at: timestamptz
 post_id: uuid // foreign key to posts table
+comment: text
 
 ## Deadline
 
