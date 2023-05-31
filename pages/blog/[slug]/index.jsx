@@ -31,7 +31,9 @@ export default function BlogPost() {
   /* Use this slug to fetch the post from the database */
   const { slug } = router.query;
 
-  const handleDeletePost = () => {};
+  const handleDeletePost = () => {
+    console.log({ id: post.id });
+  };
 
   const handleEditPost = () => {
     router.push(`/blog/${slug}/edit`);
