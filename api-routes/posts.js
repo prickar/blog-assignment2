@@ -8,7 +8,7 @@ export const postCacheKey = "/api/blogs";
 
 export const getPosts = async () => {
   const { data, error, status } = await supabase
-  .from("Posts")
+  .from("posts")
   .select()
 
   return { error, status, data  }
@@ -18,7 +18,7 @@ export const getPosts = async () => {
 
 export const getPost = async ({ slug }) => {
   const { data, error, status } = await supabase
-  .from("Posts")
+  .from("posts")
   .select('*')
   .single()
   .eq("slug", slug );
@@ -28,7 +28,7 @@ export const getPost = async ({ slug }) => {
 
 export const addPost = async (_, { arg: {title, slug, body } }) => {
   const { data, error, status } = await supabase
-  .from('Posts')
+  .from('posts')
   .insert({ title, slug, body })
   .select()
   .single()
@@ -39,7 +39,16 @@ export const addPost = async (_, { arg: {title, slug, body } }) => {
   // Handle add post here
 };
 
-export const removePost = () => {
+export const removePost = async (_, { arg: id }) => {
+  const { data, error, status  } = await supabase
+  .from('posts')
+  .delete()
+  .select()
+  .eq( 'id', id )
+
+  console.log(data)
+
+  return { error, status, data }
   //Handle remove post here
 };
 

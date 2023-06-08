@@ -13,13 +13,9 @@ export default function CreatePost() {
   const router = useRouter();
   const { trigger: addPostTrigger } = useSWRMutation( postCacheKey, addPost );
 
+
   const handleOnSubmit = async ({ editorContent, titleInput, image }) => {
     const slug = createSlug(titleInput);
-    // const newPost = {
-    //   title: titleInput,
-    //   body: editorContent,
-    //   slug: slug 
-    // };
 
    const { status, error } = await addPostTrigger ({
       body: editorContent, 
@@ -31,6 +27,8 @@ export default function CreatePost() {
     }
     console.log({ editorContent, titleInput, image, slug });
   };
+
+
 
   return (
     <BlogEditor
