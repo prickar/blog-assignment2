@@ -18,7 +18,7 @@ const LoginPage = () => {
   }, [user, router])
     return (
       <Auth
-        redirectTo="http://localhost:3000/"
+        redirectTo={process.env.BASE_URL}
         appearance={{ theme: ThemeSupa }}
         supabaseClient={supabaseClient}
         providers={[]}
