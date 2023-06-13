@@ -12,7 +12,6 @@ export const getPosts = async () => {
   .select()
 
   return { error, status, data  }
-  console.log({data})
   //Handle get all posts
 };
 
@@ -26,10 +25,10 @@ export const getPost = async ({ slug }) => {
   return { error, status, data }; 
 }
 
-export const addPost = async (_, { arg: {title, slug, body } }) => {
+export const addPost = async (_, { arg: {title, slug, body, user_id } }) => {
   const { data, error, status } = await supabase
   .from('posts')
-  .insert({ title, slug, body })
+  .insert({ title, slug, body,user_id })
   .select()
   .single()
 
@@ -39,19 +38,39 @@ export const addPost = async (_, { arg: {title, slug, body } }) => {
   // Handle add post here
 };
 
-export const removePost = async (_, { arg: id }) => {
+export const removePost = async (_, { arg: id  }) => {
   const { data, error, status  } = await supabase
   .from('posts')
   .delete()
   .select()
   .eq( 'id', id )
 
-  console.log(data)
+  console.log(data, error, status )
 
   return { error, status, data }
   //Handle remove post here
 };
 
-export const editPost = () => {
-  //Handle edit post here
-};
+export const editPost = async (_, { arg: updatedPost }) => {
+  const { data, error, status }  = await supabase
+  .from('posts')
+  .update(updatedPost)
+  .eq('id', updatedPost.id)
+  .select()
+  .single(); 
+
+  return { data, error, status }; 
+}
+
+// export const editPost = async (_, { arg: {title, slug, body, id }}) => {
+//   const { data, error, status } = await supabase
+//   .from('posts')
+//   .update({ title, slug, body })
+//   .single()
+//   .eq('id', id)
+
+//   console.log(data, error, status )
+
+
+//   return { error, data, status }
+// };

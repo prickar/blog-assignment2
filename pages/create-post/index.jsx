@@ -6,10 +6,13 @@ import { addPost, postCacheKey } from "@/api-routes/posts";
 import useSWR from "swr";
 import useSWRMutation from "swr/mutation";
 import { useRouter } from "next/router";
+import { useUser } from "@supabase/auth-helpers-react";
 
 
 
 export default function CreatePost() {
+  const user = useUser();
+  console.log(user)
   const router = useRouter();
   const { trigger: addPostTrigger } = useSWRMutation( postCacheKey, addPost );
 
@@ -20,10 +23,11 @@ export default function CreatePost() {
    const { status, error } = await addPostTrigger ({
       body: editorContent, 
       title: titleInput,
-      slug
+      slug,
+      user_id: user.id
     });
     if(!error) {
-      router.push(`./blog/${slug}`);
+      router.push(`/blog/${slug}`);
     }
     console.log({ editorContent, titleInput, image, slug });
   };
