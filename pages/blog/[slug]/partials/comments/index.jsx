@@ -7,20 +7,20 @@ import useSWRMutation from "swr/mutation";
 import useSWR  from "swr"
 
 
-const mockData = [
-  {
-    id: "1",
-    comment: "Love this post!",
-    createdAt: "2022-02-15",
-    author: "John Doe",
-  },
-  {
-    id: "2",
-    comment: "This is indeed a good community fit!",
-    createdAt: "2022-02-12",
-    author: "Jane Doe",
-  },
-];
+// const mockData = [
+//   {
+//     id: "1",
+//     comment: "Love this post!",
+//     createdAt: "2022-02-15",
+//     author: "John Doe",
+//   },
+//   {
+//     id: "2",
+//     comment: "This is indeed a good community fit!",
+//     createdAt: "2022-02-12",
+//     author: "Jane Doe",
+//   },
+// ];
 
 export default function Comments({ postId }) {
   const router = useRouter();

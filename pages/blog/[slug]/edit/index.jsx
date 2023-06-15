@@ -29,7 +29,8 @@ export default function EditBlogPost() {
       id: post.id,
       body: editorContent,
       title: titleInput,
-      slug: slug
+      slug: slug,
+      image,
 
     }
     const { status, error, data } = await editPostTrigger(updatedPost);

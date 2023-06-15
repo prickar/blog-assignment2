@@ -20,12 +20,16 @@ export default function CreatePost() {
   const handleOnSubmit = async ({ editorContent, titleInput, image }) => {
     const slug = createSlug(titleInput);
 
-   const { status, error } = await addPostTrigger ({
-      body: editorContent, 
+    const newPost = {
+      body: editorContent,
       title: titleInput,
       slug,
-      user_id: user.id
-    });
+      user_id: user.id,
+      image,
+    }
+
+   const { error } = await addPostTrigger (newPost);
+
     if(!error) {
       router.push(`/blog/${slug}`);
     }
@@ -35,6 +39,7 @@ export default function CreatePost() {
 
 
   return (
+    
     <BlogEditor
       heading="Create post"
       onSubmit={handleOnSubmit}
