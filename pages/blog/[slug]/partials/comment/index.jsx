@@ -13,6 +13,10 @@ export default function Comment({ comment, createdAt, author, id }) {
     const { status, error } = await deleteCommentTrigger(postId)
     console.log({ id });
   };
+
+  const handleReply = async () => {
+
+  }
   return (
     <div className={styles.container}>
       <p>{comment}</p>
@@ -22,6 +26,8 @@ export default function Comment({ comment, createdAt, author, id }) {
       {/* The Delete part should only be showed if you are authenticated and you are the author */}
       <div className={styles.buttonContainer}>
         <Button onClick={handleDelete}>Delete</Button>
+        <Button onClick={handleReply}>Reply</Button>
+
       </div>
     </div>
   );
