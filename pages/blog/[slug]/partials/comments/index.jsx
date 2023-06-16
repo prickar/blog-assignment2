@@ -42,7 +42,7 @@ console.log({ postId})
     <div className={styles.container}>
       <h2>Comments</h2>
       {post.map((comment) => (
-        <Comment key={comment.id} {...comment} />
+        <Comment key={comment.id} {...comment} postId={postId} />
       ))}
     </div>
   );
