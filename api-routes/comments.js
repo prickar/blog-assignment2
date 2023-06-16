@@ -9,7 +9,6 @@ export const getComments = async ({ postId }) => {
   .from('comments')
   .select()
   .eq('post_id', postId)
-  console.log(data) 
   return { data, error, status }
 
   //Handle get all comment
