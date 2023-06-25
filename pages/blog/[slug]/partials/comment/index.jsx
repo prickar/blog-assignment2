@@ -6,10 +6,12 @@ import Input from "@components/input";
 import Label from "@components/label";
 
 import { removeComment, commentCacheKey } from "../../../../../api-routes/comments";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { getReplies, replyCacheKey, addReply, removeReply } from "../../../../../api-routes/replies";
 
 export default function Comment({ comment, createdAt, author, id, postId }) {
+  const [replyText, setReplyText] = useState("");
+
   const formRef = useRef();
 
   const { data: { data = [] } = {}, error } = useSWR(
@@ -60,7 +62,12 @@ export default function Comment({ comment, createdAt, author, id, postId }) {
     }
 
     const { data, status, error } = await addReplyTrigger(newReply)
-    console.log( data, error )
+    console.log( data, error ); 
+
+    if (status === 201) {
+      setReplyText(""); 
+    }
+    console.log(status)
   };
 
   const handleRemoveReply = async (replyId) => {
@@ -87,18 +94,16 @@ export default function Comment({ comment, createdAt, author, id, postId }) {
         <div className={styles.buttonContainer}>
           <Button onClick={handleDelete}>Delete</Button>
           <Label htmlFor="reply">Reply</Label>
-          <Input id="reply" name="reply" />
+          <Input 
+          id="reply" 
+          name="reply"
+          value={replyText}
+          onChange={(event) => setReplyText(event.target.value)}
+           />
           <Button type="submit">Send</Button>
         </div>
       </form>
     </div>
       );
     }
-
-      
-    {/* 
-      <div className={styles.buttonContainer}>
-        <Button onClick={handleDelete}>Delete</Button>
-      </div>
-    </div> */}
 

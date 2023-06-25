@@ -9,8 +9,16 @@ import { addComment, commentCacheKey } from "../../../../../api-routes/comments"
 
 
 export default function AddComment({ postId }) {
-  const formRef = useRef(); // create a reference
-  const { trigger: addCommentTrigger } = useSWRMutation(postId ? `${commentCacheKey}${postId}` : null, addComment);
+  const formRef = useRef(); 
+  
+  const { trigger: addCommentTrigger } = useSWRMutation(
+    postId ? 
+    `${commentCacheKey}${postId}` 
+    : null, addComment, {
+      onError: (error) => {
+        console.log(error)
+      }
+    });
 
   const handleOnSubmit = async (event) => {
     event.preventDefault();

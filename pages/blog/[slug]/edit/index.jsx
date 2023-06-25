@@ -13,12 +13,22 @@ export default function EditBlogPost() {
 
   /* Use this slug to fetch the post from the database */
   const { slug } = router.query;
+
   const { data : { data: post = {}} = {},
    error,
-  isLoading } = useSWR(slug ? `${postCacheKey}${slug}` : null, () =>
+  isLoading } = useSWR(
+    slug ? 
+    `${postCacheKey}${slug}` 
+    : null, () =>
   getPost({slug}) 
   );
-  const { trigger: editPostTrigger } = useSWRMutation(`${postCacheKey}${slug}`, editPost, {
+
+  const { trigger: editPostTrigger } = useSWRMutation(
+    `${postCacheKey}${slug}`, 
+    editPost, {
+      onError: (error) => {
+        console.log(error)
+      }
   });
  
 
@@ -38,9 +48,7 @@ export default function EditBlogPost() {
       router.push(`/blog/${slug}`)
     }
   }
-  //   console.log({ editorContent, titleInput, image, slug });
-  // };
-  // console.log(post)
+
   if (isLoading) {
     return null; 
   }

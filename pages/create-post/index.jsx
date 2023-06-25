@@ -14,7 +14,14 @@ export default function CreatePost() {
   const user = useUser();
   console.log(user)
   const router = useRouter();
-  const { trigger: addPostTrigger } = useSWRMutation( postCacheKey, addPost );
+
+  const { trigger: addPostTrigger } = useSWRMutation( 
+    postCacheKey, 
+    addPost, {
+      onError: (error) => {
+        console.log(error)
+      }
+    });
 
 
   const handleOnSubmit = async ({ editorContent, titleInput, image }) => {

@@ -7,13 +7,26 @@ const API_KEY_QUERY = "NEXT_PUBLIC_SUPABASE_ANON_KEY";
 export const postCacheKey = "/api/blogs";
 
 
-export const getPosts = async () => {
-  const { data, error, status } = await supabase
-  .from("posts")
-  .select()
+export const getPosts = async (_, { arg: searchText }) => {
+//   if(!searchText.length) {
+//   const { data, error, status } = await supabase
+//   .from("posts")
+//   .select()
 
-  return { error, status, data  }
-  //Handle get all posts
+//   return { error, status, data  }
+//   //Handle get all posts
+// };
+
+const { data, error, status } = await supabase
+.from('posts')
+.select()
+.ilike('title', `%${searchText}%`);
+
+console.log({searchText})
+console.log(error)
+console.log(data)
+
+return { data, error, status }
 };
 
 export const getPost = async ({ slug }) => {
@@ -85,16 +98,3 @@ export const editPost = async (_, { arg: updatedPost }) => {
 
   return { data, error, status }; 
 }
-
-// export const editPost = async (_, { arg: {title, slug, body, id }}) => {
-//   const { data, error, status } = await supabase
-//   .from('posts')
-//   .update({ title, slug, body })
-//   .single()
-//   .eq('id', id)
-
-//   console.log(data, error, status )
-
-
-//   return { error, data, status }
-// };

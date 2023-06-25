@@ -16,8 +16,6 @@ export default function BlogPost() {
   });
 
   const router = useRouter();
-
-  /* Use this slug to fetch the post from the database */
   const { slug } = router.query;
 
   const { data : { data: post = {}} = {}, error } = useSWR(slug ? `${postCacheKey}${slug}` : null, () =>
@@ -35,11 +33,9 @@ export default function BlogPost() {
     } 
   }; 
  
-
   const handleEditPost = async () => {
     router.push(`/blog/${slug}/edit`)
     };
-
 
   return (
     <>
